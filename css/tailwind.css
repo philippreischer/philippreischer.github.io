@@ -757,6 +757,8 @@ html {
   overflow: hidden;
 }
 
+#mobile-menu.open { max-height: 300px; opacity: 1; }
+
 /* ── Fact Pill ──────────────────────────────────── */
 
 .fact-pill {
