@@ -68,18 +68,11 @@ function type() {
 // Start nach kurzem Delay
 setTimeout(type, 1200);
 
-// ── Navbar: immer solider Hintergrund ──────────────
+// ── Navbar: scrolled-Klasse steuert Blur via CSS ───
 const navbar = document.getElementById('navbar');
-navbar.classList.add('bg-dark', 'border-b', 'border-white/5');
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) {
-    navbar.classList.add('shadow-lg', 'backdrop-blur-md');
-    navbar.classList.replace('bg-dark', 'bg-dark/95');
-  } else {
-    navbar.classList.remove('shadow-lg', 'backdrop-blur-md');
-    navbar.classList.replace('bg-dark/95', 'bg-dark');
-  }
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
 });
 
 // ── Hamburger Menu ─────────────────────────────────
@@ -111,10 +104,8 @@ const iconMoon    = document.getElementById('icon-moon');
 function applyTheme(isDark) {
   if (isDark) {
     html.classList.add('dark');
-    html.classList.remove('light');
   } else {
     html.classList.remove('dark');
-    html.classList.add('light');
   }
   // Desktop icons
   iconSun.classList.toggle('hidden', isDark);

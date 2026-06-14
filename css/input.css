@@ -1,3 +1,319 @@
 @tailwind base;
+
+/* ── Inter – self-hosted (DSGVO-konform) ─────────── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/inter-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/inter-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/inter-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@layer base {
+  /* ── CSS Variables: light = default, .dark = override ── */
+  :root {
+    --bg-primary:   #f8fafc;
+    --bg-surface:   #e8f0fe;
+    --text-primary: #0a0f1e;
+    --text-muted:   #1e293b;
+    --border:       rgba(37, 99, 235, 0.2);
+    --border-hover: rgba(37, 99, 235, 0.5);
+    --accent:       #2563eb;
+    --accent-light: #1d4ed8;
+  }
+  .dark {
+    --bg-primary:   #0f172a;
+    --bg-surface:   #1e293b;
+    --text-primary: #f8fafc;
+    --text-muted:   #94a3b8;
+    --border:       rgba(37, 99, 235, 0.15);
+    --border-hover: rgba(37, 99, 235, 0.4);
+    --accent:       #2563eb;
+    --accent-light: #60a5fa;
+  }
+
+  html { font-family: 'Inter', system-ui, sans-serif; }
+
+  /* ── Scrollbar ──────────────────────────────────── */
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-primary); }
+  ::-webkit-scrollbar-thumb { @apply bg-accent rounded; }
+
+  /* ── Keyframes ──────────────────────────────────── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-6px); }
+    40%       { transform: translateX(6px); }
+    60%       { transform: translateX(-4px); }
+    80%       { transform: translateX(4px); }
+  }
+
+  /* ── Mobile fixes ───────────────────────────────── */
+  @media (max-width: 640px) {
+    body  { overflow-x: hidden; }
+    #hero { padding-top: 5rem; }
+  }
+}
+
 @tailwind components;
+
+@layer components {
+
+  /* ── Animations ─────────────────────────────────── */
+  .animate-fadeInUp { animation: fadeInUp 0.6s ease forwards; }
+  .shake             { animation: shake 0.4s ease; }
+
+  /* ── Scroll Reveal ──────────────────────────────── */
+  .reveal {
+    @apply opacity-0 translate-y-6;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { @apply opacity-100 translate-y-0; }
+
+  /* ── Navbar ─────────────────────────────────────── */
+  #navbar {
+    @apply bg-light/95 dark:bg-dark/95 border-b border-black/5 dark:border-white/5;
+  }
+  #navbar.scrolled { @apply shadow-lg backdrop-blur-md; }
+
+  .nav-link { @apply relative transition-colors duration-200; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    @apply bg-accent;
+    transition: width 0.25s ease;
+    border-radius: 2px;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* ── Mobile Menu ────────────────────────────────── */
+  #mobile-menu {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  #mobile-menu.open { max-height: 300px; opacity: 1; }
+
+  /* ── Fact Pill ──────────────────────────────────── */
+  .fact-pill {
+    @apply inline-flex items-center gap-1.5 text-[0.8rem] py-1.5 px-3.5
+           rounded-full border border-accent/25
+           text-[#1e293b] dark:text-muted
+           bg-accent/5 transition-all duration-200;
+  }
+  .fact-pill:hover {
+    @apply border-accent/50 text-[#1d4ed8] dark:text-accent-light;
+  }
+
+  /* ── Skill Card ─────────────────────────────────── */
+  .skill-card {
+    @apply bg-light-surface dark:bg-dark-surface
+           border border-accent/20 dark:border-accent/[0.15]
+           rounded-2xl p-6 transition-all duration-300;
+  }
+  .skill-card:hover {
+    @apply border-accent/50 dark:border-accent/40 -translate-y-1
+           shadow-[0_12px_40px_rgba(37,99,235,0.1)];
+  }
+  .skill-card-header { @apply flex items-center gap-2.5 mb-4; }
+  .skill-card-icon   { @apply text-xl; }
+  .skill-card-title  { @apply text-base font-semibold text-[#0a0f1e] dark:text-[#f8fafc]; }
+  .skill-tags        { @apply flex flex-wrap gap-2; }
+
+  .skill-tag {
+    @apply inline-flex items-center gap-1.5 text-[0.78rem] py-[5px] px-3
+           rounded-full transition-all duration-200;
+  }
+  .skill-tag.active {
+    @apply bg-accent/[0.15] border border-accent/30
+           text-[#1e3a8a] dark:text-[#93c5fd];
+  }
+  .skill-tag.active:hover {
+    @apply bg-accent/25 border-accent/60 text-[#1d4ed8] dark:text-[#bfdbfe];
+  }
+  .skill-tag.learning {
+    @apply bg-accent/5 border border-dashed border-accent/30
+           text-[#334155] dark:text-muted;
+  }
+  .skill-icon  { @apply w-3.5 h-3.5 object-contain; }
+  .github-icon { @apply opacity-70 dark:opacity-100 dark:invert dark:brightness-75; }
+
+  .learning-badge {
+    @apply text-[0.65rem] bg-accent/20 px-1.5 py-px rounded-full ml-0.5
+           text-[#1e3a8a] dark:text-accent-light;
+  }
+
+  /* ── Project Card ───────────────────────────────── */
+  .project-card {
+    @apply bg-light-surface dark:bg-dark-surface
+           border border-accent/20 dark:border-accent/[0.15]
+           rounded-2xl overflow-hidden transition-all duration-300 flex flex-col;
+  }
+  .project-card:hover {
+    @apply border-accent/50 dark:border-accent/40 -translate-y-1
+           shadow-[0_16px_48px_rgba(37,99,235,0.1)];
+  }
+
+  .project-preview {
+    position: relative;
+    height: 240px;
+    background: linear-gradient(135deg, #e8f0fe 0%, #dbeafe 100%);
+    @apply border-b border-accent/[0.15] flex items-center justify-center overflow-hidden;
+  }
+  .dark .project-preview {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+  .project-preview img { @apply w-full h-full object-cover block; }
+
+  .project-preview--portrait { background: #f0f0f0; }
+  .project-preview--portrait img { object-fit: contain; }
+
+  /* Badge-lesbarer Gradient-Overlay oben */
+  .project-preview::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Subtiles Radial-Glow hinter Emoji-Platzhalter */
+  .project-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%);
+  }
+  .project-preview.wip::before {
+    background: radial-gradient(circle at 50% 50%, rgba(100,116,139,0.08) 0%, transparent 70%);
+  }
+
+  .project-preview-inner { @apply flex flex-col items-center gap-2.5 z-[1]; }
+  .project-preview-label { @apply text-[0.75rem] text-[#64748b] font-medium; }
+
+  .project-status {
+    @apply absolute top-3 right-3 z-[2] text-[0.7rem] py-[3px] px-2.5
+           rounded-full font-medium border;
+  }
+  /* Light mode: weißer Hintergrund + dunkler Text (über hellem Preview sichtbar) */
+  .project-status.done {
+    background: rgba(255, 255, 255, 0.92);
+    @apply border-emerald-500/50 text-[#065f46];
+  }
+  .project-status.wip {
+    background: rgba(255, 255, 255, 0.92);
+    @apply border-amber-500/50 text-[#78350f];
+  }
+  /* Dark mode: transparenter farbiger Hintergrund */
+  .dark .project-status.done {
+    background: rgba(16, 185, 129, 0.1);
+    @apply border-emerald-500/30 text-emerald-400;
+  }
+  .dark .project-status.wip {
+    background: rgba(245, 158, 11, 0.1);
+    @apply border-amber-500/30 text-amber-400;
+  }
+
+  .project-body  { @apply p-5 flex-1 flex flex-col; }
+  .project-title { @apply text-base font-semibold text-[#0a0f1e] dark:text-[#f8fafc]; }
+  .project-desc  {
+    @apply text-[0.82rem] text-[#334155] dark:text-muted
+           leading-relaxed mb-3.5 flex-1;
+  }
+  .project-link       { @apply text-[#334155] dark:text-muted transition-colors duration-200; }
+  .project-link:hover { @apply text-[#1d4ed8] dark:text-accent-light; }
+
+  .project-tags { @apply flex flex-wrap gap-1.5 mt-auto; }
+  .project-tag {
+    @apply text-[0.72rem] py-[3px] px-2.5 rounded-full
+           border border-accent/25
+           text-[#1e3a8a] dark:text-[#93c5fd];
+    background: rgba(37, 99, 235, 0.12);
+  }
+  .dark .project-tag { background: rgba(37, 99, 235, 0.12); }
+
+  .project-tag.coming {
+    border-style: dashed;
+    @apply border-amber-500/30 text-[#78350f] dark:text-amber-400;
+    background: rgba(245, 158, 11, 0.08);
+  }
+
+  /* ── Contact ────────────────────────────────────── */
+  .contact-link {
+    @apply flex items-center gap-3.5 py-3.5 px-4 rounded-xl no-underline
+           border border-accent/[0.15] bg-light-surface dark:bg-dark-surface
+           transition-all duration-200;
+  }
+  .contact-link:hover {
+    @apply border-accent/40 shadow-[0_4px_20px_rgba(37,99,235,0.1)];
+    transform: translateX(4px);
+  }
+  .contact-link-icon {
+    @apply w-10 h-10 rounded-[10px] flex items-center justify-center flex-shrink-0
+           bg-accent/10 border border-accent/20
+           text-[#1d4ed8] dark:text-accent-light;
+  }
+  .contact-link-label {
+    @apply block text-[0.7rem] uppercase tracking-[0.06em] mb-[2px]
+           text-[#334155] dark:text-[#64748b];
+  }
+  .contact-link-value {
+    @apply text-[0.85rem] font-medium text-[#0a0f1e] dark:text-[#e2e8f0];
+  }
+
+  .contact-form-wrapper {
+    @apply bg-light-surface dark:bg-dark-surface
+           border border-accent/[0.15] rounded-2xl p-7;
+  }
+  .contact-label {
+    @apply block text-[0.75rem] font-medium tracking-[0.04em] mb-1.5
+           text-[#334155] dark:text-muted;
+  }
+  .contact-input {
+    @apply w-full rounded-[10px] py-2.5 px-3.5 text-sm
+           border border-accent/20
+           bg-light dark:bg-dark
+           text-[#0a0f1e] dark:text-[#f8fafc]
+           transition-colors duration-200;
+    font-family: inherit;
+  }
+  .contact-input::placeholder {
+    @apply text-[#4b5563] dark:text-[#475569];
+  }
+  .contact-input:focus {
+    @apply outline-none border-accent shadow-[0_0_0_3px_rgba(37,99,235,0.15)];
+  }
+
+  @media (max-width: 640px) {
+    .contact-form-wrapper { padding: 20px 16px; }
+  }
+}
+
 @tailwind utilities;
