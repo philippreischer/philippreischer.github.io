@@ -45,7 +45,7 @@ html.light .contact-link:hover        { border-color: var(--border-hover); }
 html.light .project-preview           { background: linear-gradient(135deg, #e8f0fe 0%, #dbeafe 100%); }
 html.light .project-preview--portrait { background: #f0f0f0; }
 html.light .contact-input             { background: #f8fafc; border-color: var(--border); color: var(--text-primary); }
-html.light .contact-input::placeholder { color: #94a3b8; }
+html.light .contact-input::placeholder { color: #4b5563; }
 html.light .skill-tag.active          { background: rgba(37, 99, 235, 0.1); color: #1e3a8a; }
 html.light .skill-tag.learning        { color: #334155; }
 html.light .project-tag               { color: #1e3a8a; }
@@ -61,6 +61,18 @@ html.light .nav-link:hover            { color: #0a0f1e; }
 html.light #mobile-menu               { background-color: #e8f0fe; }
 html.light .github-icon               { filter: none; opacity: 0.7; }
 html.light ::-webkit-scrollbar-track  { background: #e8f0fe; }
+/* Tailwind utility classes hardcode colors – redirect to CSS vars in light mode */
+html.light .text-accent-light         { color: var(--accent-light); }
+html.light .text-muted                { color: var(--text-muted); }
+/* Component-level light mode fixes */
+html.light .contact-label             { color: #334155; }
+html.light .learning-badge            { color: #1e3a8a; }
+html.light .project-link              { color: #334155; }
+html.light .project-tag.coming        { color: #78350f; }
+html.light .project-status.done       { background: rgba(255,255,255,0.92); border-color: rgba(16,185,129,0.5); color: #065f46; }
+html.light .project-status.wip        { background: rgba(255,255,255,0.92); border-color: rgba(245,158,11,0.5);  color: #78350f; }
+/* text-white emphasis spans in content (not buttons) */
+html.light #about .text-white         { color: var(--text-primary); }
 
 /* Smooth Color Transition */
 body, #navbar, .skill-card, .project-card,
@@ -194,7 +206,7 @@ html {
 }
 .contact-link-label {
   font-size: 0.7rem;
-  color: #64748b;
+  color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 2px;
@@ -344,7 +356,7 @@ html {
   flex: 1;
 }
 .project-link {
-  color: #64748b;
+  color: #94a3b8;
   transition: color 0.2s;
 }
 .project-link:hover { color: #60a5fa; }
@@ -420,7 +432,7 @@ html {
 .skill-tag.learning {
   background: rgba(37, 99, 235, 0.05);
   border: 1px dashed rgba(37, 99, 235, 0.3);
-  color: #64748b;
+  color: #94a3b8;
 }
 .skill-icon {
   width: 14px;
