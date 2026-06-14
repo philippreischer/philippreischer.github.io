@@ -34,7 +34,11 @@ html.light #navbar                     { background-color: rgba(248, 250, 252, 0
 html.light .skill-card,
 html.light .project-card,
 html.light .contact-form-wrapper,
-html.light .contact-link              { background: var(--bg-surface); border-color: var(--border); }
+html.light .contact-link,
+html.light .hero-avatar-ring,
+html.light .hero-badge,
+html.light .about-photo-frame,
+html.light .about-stat-card           { background: var(--bg-surface); border-color: var(--border); }
 html.light .skill-card:hover,
 html.light .project-card:hover,
 html.light .contact-link:hover        { border-color: var(--border-hover); }
