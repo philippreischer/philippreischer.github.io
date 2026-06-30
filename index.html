@@ -443,8 +443,47 @@
 
       <!-- Project Grid -->
       <div class="grid md:grid-cols-2 gap-6">
-        
-        <!-- Projekt 1: Tarock App -->
+        <!-- Projekt 1: A11yForge -->
+        <div class="project-card group">
+          <div class="project-preview">
+            <img src="img/a11yforge-screenshot.png" alt="Screenshot von A11yForge mit automatisch korrigierten Barrierefreiheits-Problemen">
+            <div class="project-status wip">⚙ In finaler Entwicklung</div>
+          </div>
+          <div class="project-body">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <h3 class="project-title">A11yForge</h3>
+              <div class="flex gap-3 flex-shrink-0">
+                <!-- Links folgen, sobald das Repo öffentlich ist:
+                <a href="[GITHUB-URL]" class="project-link" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                </a>
+                <a href="[LIVE-URL]" class="project-link" title="Live Demo">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+                -->
+              </div>
+            </div>
+            <p class="text-xs text-[#1e293b] dark:text-muted mb-3">👥 Teamprojekt mit [NAME]</p>
+            <p class="project-desc">
+              AI-gestütztes Tool, das Webseiten auf Barrierefreiheits-Probleme prüft und
+              mithilfe von KI konkrete Korrekturen vorschlägt. Entstanden mit Blick auf den
+              European Accessibility Act (EAA), der seit Juni 2025 verpflichtend ist.
+              Mein bisher technisch anspruchsvollstes Projekt, aktuell in finaler Entwicklung.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Vue.js</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Tailwind</span>
+              <span class="project-tag">Spring Boot</span>
+              <span class="project-tag">Anthropic API</span>
+              <span class="project-tag">Accessibility</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">Playwright</span>
+              <span class="project-tag">Axe core</span>
+            </div>
+          </div>
+        </div>
+        <!-- Projekt 2: Tarock App -->
         <div class="project-card group">
           <div class="project-preview project-preview--portrait">
             <img src="img/tarock-scoring-app-screenshot-active-game.png" alt="Screenshot der Tarock Scoring App mit laufendem Spiel">
@@ -463,9 +502,9 @@
               </div>
             </div>
             <p class="project-desc">
-              Mobile App zum Mitzählen der Spielstände beim Kartenspiel Tarock. 
-              Eigenständig konzipiert, weil es keine vergleichbare Lösung gab, 
-              als Progressive Web App gebaut und mit Apache Cordova fürs Smartphone verpackt. 
+              Mobile App zum Mitzählen der Spielstände beim Kartenspiel Tarock.
+              Eigenständig konzipiert, weil es keine vergleichbare Lösung gab – mit
+              Vue.js gebaut und über Apache Cordova als native App fürs Smartphone gebracht.
               Wird aktiv von Freunden genutzt.
             </p>
             <div class="project-tags">
@@ -477,7 +516,7 @@
           </div>
         </div>
 
-        <!-- Projekt 2: Kitchen App -->
+        <!-- Projekt 3: Kitchen App -->
         <div class="project-card group">
           <div class="project-preview">
             <img src="img/kitchen-app-search.png" alt="Screenshot der Kitchen App mit Rezeptsuche">
@@ -496,8 +535,9 @@
               </div>
             </div>
             <p class="project-desc">
-              Frontend-Abschlussprojekt bei CodersBay Vienna. Rezeptsuche über die TheMealDB-API, 
-              mit Benutzer-Authentifizierung und persönlicher Favoritenliste. Responsive umgesetzt mit Vue.js und Vuetify.
+              Frontend-Abschlussprojekt bei CodersBay Vienna. Rezeptsuche über die
+              TheMealDB-API, mit Benutzer-Authentifizierung und persönlicher Favoritenliste.
+              Responsive umgesetzt mit Vue.js und Vuetify.
             </p>
             <div class="project-tags">
               <span class="project-tag">Vue.js</span>
@@ -507,7 +547,7 @@
           </div>
         </div>
 
-        <!-- Projekt 3: Kursbuchung -->
+        <!-- Projekt 4: Kursbuchung -->
         <div class="project-card group">
           <div class="project-preview wip">
             <div class="project-preview-inner">
@@ -531,8 +571,8 @@
             </div>
             
             <p class="project-desc">
-              REST-Backend für ein Kursbuchungs-System: Nutzer können Kurse buchen, 
-              reservieren und stornieren. Backend-Abschlussprojekt bei CodersBay Vienna, 
+              REST-Backend für ein Kursbuchungs-System: Nutzer können Kurse buchen,
+              reservieren und stornieren. Backend-Abschlussprojekt bei CodersBay Vienna,
               mit Unit-Tests via Mockito abgesichert. Ein Frontend-Dashboard ist in Planung.
             </p>
             <div class="project-tags">
@@ -545,7 +585,7 @@
           </div>
         </div>
 
-        <!-- Projekt 4: Kalkulations App -->
+        <!-- Projekt 5: Kalkulations App -->
         <div class="project-card group">
           <div class="project-preview wip">
             <img src="img/cost-calculator-screenshot-1.png" alt="Screenshot der Kalkulationsapp mit Kalkulationstabelle">
@@ -564,51 +604,13 @@
               </div>
             </div>
             <p class="project-desc">
-              Web- und Mobile-App zur Preiskalkulation, vom Einkaufspreis bis zum Brutto-Verkaufspreis. 
-              Direkter Praxisbezug zu meinem aktuellen Job im Vertrieb. Umgesetzt mit JavaScript und Tailwind CSS.
+              Web- und Mobile-App zur Preiskalkulation, vom Einkaufspreis bis zum
+              Brutto-Verkaufspreis. Direkter Praxisbezug zu meinem aktuellen Job im Vertrieb.
+              Umgesetzt mit JavaScript und Tailwind CSS.
             </p>
             <div class="project-tags">
               <span class="project-tag">JavaScript</span>
               <span class="project-tag">Tailwind</span>
-            </div>
-          </div>
-        </div>
-        <!-- Projekt 1: A11yForge -->
-        <div class="project-card group">
-          <div class="project-preview">
-            <img src="img/a11yforge-screenshot.png" alt="Screenshot von A11yForge mit automatisch korrigierten Barrierefreiheits-Problemen">
-            <div class="project-status wip">⚙ In finaler Entwicklung</div>
-          </div>
-          <div class="project-body">
-            <div class="flex items-start justify-between gap-4 mb-3">
-              <h3 class="project-title">A11yForge</h3>
-              <div class="flex gap-3 flex-shrink-0">
-                <!-- Links folgen, sobald das Repo öffentlich ist:
-                <a href="[GITHUB-URL]" class="project-link" title="GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-                </a>
-                <a href="[LIVE-URL]" class="project-link" title="Live Demo">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                </a>
-                -->
-              </div>
-            </div>
-            <p class="text-xs text-[#1e293b] dark:text-muted mb-3">👥 Teamprojekt mit [NAME]</p>
-            <p class="project-desc">
-              AI-gestütztes Tool, das Webseiten auf Barrierefreiheits-Probleme prüft und mithilfe von KI 
-              konkrete Korrekturen vorschlägt. Entstanden mit Blick auf den European Accessibility Act (EAA), 
-              der seit Juni 2025 verpflichtend ist. Mein bisher technisch anspruchsvollstes Projekt, aktuell in finaler Entwicklung.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Vue.js</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">Tailwind</span>
-              <span class="project-tag">Spring Boot</span>
-              <span class="project-tag">Anthropic API</span>
-              <span class="project-tag">Accessibility</span>
-              <span class="project-tag">PostgreSQL</span>
-              <span class="project-tag">Playwright</span>
-              <span class="project-tag">Axe core</span>
             </div>
           </div>
         </div>
