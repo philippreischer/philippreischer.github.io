@@ -701,27 +701,34 @@
 
         <!-- Right: Contact Form -->
         <div class="contact-form-wrapper">
-          <div class="space-y-4">
+          <form id="contact-form" class="space-y-4">
+
+            <!-- Web3Forms Access Key (deinen Key hier eintragen) -->
+            <input type="hidden" name="access_key" value="93702ad4-61fa-4a6c-a3cc-8f2f494a756c" />
+            <!-- Betreff der Mail, die bei dir ankommt -->
+            <input type="hidden" name="subject" value="Neue Nachricht über dein Portfolio" />
+            <!-- Spam-Schutz (Honeypot, für Besucher unsichtbar) -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off" />
 
             <div>
               <label class="contact-label" for="name">Name</label>
-              <input id="name" type="text" placeholder="Max Mustermann"
+              <input id="name" name="name" type="text" placeholder="Max Mustermann" required
                 class="contact-input" />
             </div>
 
             <div>
               <label class="contact-label" for="email">E-Mail</label>
-              <input id="email" type="email" placeholder="max@beispiel.at"
+              <input id="email" name="email" type="email" placeholder="max@beispiel.at" required
                 class="contact-input" />
             </div>
 
             <div>
               <label class="contact-label" for="message">Nachricht</label>
-              <textarea id="message" rows="5" placeholder="Hallo Philipp, ich habe dein Portfolio gesehen und…"
+              <textarea id="message" name="message" rows="5" placeholder="Hallo Philipp, ich habe dein Portfolio gesehen und…" required
                 class="contact-input resize-none"></textarea>
             </div>
 
-            <button id="send-btn"
+            <button id="send-btn" type="submit"
               class="w-full bg-accent hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 flex items-center justify-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
@@ -734,7 +741,7 @@
               ✓ Danke! Ich melde mich so schnell wie möglich.
             </div>
 
-          </div>
+          </form>
         </div>
 
       </div>

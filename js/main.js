@@ -3,27 +3,44 @@
    main.js
 ═══════════════════════════════════════════════════ */
 
-// ── Contact Form ───────────────────────────────────
-const sendBtn = document.getElementById('send-btn');
-if (sendBtn) {
-  sendBtn.addEventListener('click', () => {
-    const name    = document.getElementById('name').value.trim();
-    const email   = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+// ── Contact Form (Web3Forms) ───────────────────────
+const contactForm = document.getElementById('contact-form');
+const sendBtn      = document.getElementById('send-btn');
+const formSuccess  = document.getElementById('form-success');
 
-    if (!name || !email || !message) {
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Sende-Zustand anzeigen, Button-Inhalt zwischenspeichern
+    const originalBtnHTML = sendBtn.innerHTML;
+    sendBtn.disabled  = true;
+    sendBtn.innerHTML = 'Senden…';
+
+    try {
+      const formData = new FormData(contactForm);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData,
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        // Erfolg: Felder leeren, Danke-Meldung zeigen, Button ausblenden
+        contactForm.reset();
+        formSuccess.classList.remove('hidden');
+        sendBtn.classList.add('hidden');
+      } else {
+        throw new Error(data.message || 'Senden fehlgeschlagen');
+      }
+    } catch (err) {
+      // Fehler: Button schütteln + zurücksetzen
       sendBtn.classList.add('shake');
       setTimeout(() => sendBtn.classList.remove('shake'), 500);
-      return;
+      sendBtn.disabled  = false;
+      sendBtn.innerHTML = originalBtnHTML;
     }
-
-    // Mailto fallback
-    const subject = encodeURIComponent(`Portfolio-Kontakt von ${name}`);
-    const body    = encodeURIComponent(`Name: ${name}\nE-Mail: ${email}\n\n${message}`);
-    window.location.href = `mailto:philipp.reischer@gmx.at?subject=${subject}&body=${body}`;
-
-    document.getElementById('form-success').classList.remove('hidden');
-    sendBtn.classList.add('hidden');
   });
 }
 
