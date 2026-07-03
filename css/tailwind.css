@@ -634,13 +634,17 @@ html {
   }
 }
 
+/* ── Overflow-Guard: verhindert horizontales Scrollen,
+       falls ein Dekor-Element doch über den Rand ragt.
+       Auf html UND body, damit es zuverlässig greift. ── */
+
+html, body {
+  overflow-x: hidden;
+}
+
 /* ── Mobile fixes ───────────────────────────────── */
 
 @media (max-width: 640px) {
-  body  {
-    overflow-x: hidden;
-  }
-
   #hero {
     padding-top: 5rem;
   }
@@ -756,8 +760,6 @@ html {
   opacity: 0;
   overflow: hidden;
 }
-
-#mobile-menu.open { max-height: 300px; opacity: 1; }
 
 /* ── Fact Pill ──────────────────────────────────── */
 
