@@ -49,7 +49,7 @@ const roles = [
   'Full-Stack Entwickler',
   'Frontend Entwickler',
   'Backend Entwickler',
-  'Problemlöser',
+  //'Problemlöser',
 ];
 let roleIndex  = 0;
 let charIndex  = 0;
