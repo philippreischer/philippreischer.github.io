@@ -184,6 +184,29 @@
            shadow-[0_16px_48px_rgba(37,99,235,0.1)];
   }
 
+  /* ── Stretched Link (ganze Karte klickbar) ──────── */
+  /* Karte ist Positionierungs-Kontext fürs Overlay */
+  .project-card { position: relative; }
+
+  /* ── Stretched Link (ganze Karte klickbar) ──────── */
+  .project-card { position: relative; }
+
+  .card-link-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  /* Body UND Preview lassen Klicks durch zum Overlay; nur echte Links fangen sie ab */
+  .project-card .project-body,
+  .project-card .project-preview { pointer-events: none; }
+  .project-card .project-body a,
+  .project-card .project-preview a {
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
+  }
+  
   .project-preview {
     position: relative;
     height: 240px;
